@@ -1,6 +1,6 @@
 package org.launchcode.cheesemvc.controllers;
 
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +23,6 @@ public class CheeseController {
     // Request path: /cheese
     @RequestMapping(value = "")
     public String index(Model model){
-
         model.addAttribute("cheeses", cheeses);
         model.addAttribute("title", "My Cheeses");
 
@@ -33,13 +32,11 @@ public class CheeseController {
     public String displayAddCheeseForm(Model model){
         model.addAttribute("title", "Add Cheese");
 
-
         return "cheese/add";
     }
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddCheeseForm(@RequestParam String cheeseName, @RequestParam String description){
         cheeses.put(cheeseName, description);
-
 
         //Redirect to /cheese
         return "redirect:";
@@ -56,7 +53,6 @@ public class CheeseController {
         for (String removeCheese : cheese) {
             cheeses.remove(removeCheese);
         }
-            return "redirect";
-
+            return "redirect:";
     }
 }

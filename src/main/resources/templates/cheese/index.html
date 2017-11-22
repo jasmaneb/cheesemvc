@@ -9,20 +9,13 @@
 
     <p th:unless="${cheeses} and ${cheeses.size()}">no cheese :(</p>
 
-
-    <form method="post" >
-
     <table>
-        <tr th:each="cheese : ${cheeses.entrySet()}" >
-            <td> <input th:type="checkbox" name="cheese" id = "cheese" th:value="${cheese.key}"/> </td>
+        <tr th:each="cheese : ${cheeses}" >
             <td th:text="${cheese.key}">Cheese</td>
             <td th:text="${cheese.value}">Description</td>
 
         </tr>
     </table>
-    <input th:type="Submit" value="Remove Cheese" />
-
-    </form>
 
 </body>
 </html>
